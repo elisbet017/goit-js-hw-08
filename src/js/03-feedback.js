@@ -37,5 +37,4 @@ function updateInput() {
     console.log(error.message);
   }
 }
-
 updateInput();
