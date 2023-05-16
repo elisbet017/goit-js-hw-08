@@ -13,17 +13,11 @@ function onFormSubmit(e) {
   e.preventDefault();
   setTimeout(() => {
     for (let i = 1; i <= refs.amount.value; i += 1) {
-      if ((i = 2)) {
-        const firstDelay = refs.delay.value + refs.step.value * i;
-        const currentDelay = refs.step.value * i;
-        setTimeout(() => {
-          createPromise(i, currentDelay);
-        }, firstDelay);
-      } else {
-        setTimeout(() => {
-          createPromise(i, currentDelay);
-        }, currentDelay);
-      }
+      const currentDelay = refs.step.value * i;
+      const currentTextDelay = Number(refs.delay.value) + refs.step.value * (i - 1);
+      setTimeout(() => {
+        createPromise(i, currentTextDelay);
+      }, currentDelay);
     }
   }, refs.delay.value);
 }
