@@ -3,6 +3,7 @@ const refs = {
   btnStop: document.querySelector('[data-stop]'),
 };
 let timerId = null;
+refs.btnStop.setAttribute('disabled', '');
 
 refs.btnStart.addEventListener('click', onStartSwitchColor);
 refs.btnStop.addEventListener('click', onStopSwitchColor);
@@ -11,14 +12,15 @@ function onStartSwitchColor() {
   document.body.style.backgroundColor = getRandomHexColor();
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
-  }, 1000)
+  }, 1000);
   refs.btnStart.setAttribute('disabled', '');
+  refs.btnStop.removeAttribute('disabled', '');
 }
 
 function onStopSwitchColor() {
   clearInterval(timerId);
   refs.btnStart.removeAttribute('disabled', '');
-
+  refs.btnStop.setAttribute('disabled', '');
 }
 
 function getRandomHexColor() {
