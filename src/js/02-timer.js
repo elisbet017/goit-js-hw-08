@@ -25,7 +25,6 @@ const options = {
 
 function onChooseDate(selectedDates) {
   const chooseDate = new Date(selectedDates[0]).getTime();
-  console.log(chooseDate);
   if (Date.now() > chooseDate) {
     Notify.failure('Please choose a date in the future');
     return;
