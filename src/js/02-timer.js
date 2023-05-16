@@ -33,6 +33,7 @@ function onChooseDate(selectedDates) {
   refs.startBtn.addEventListener('click', onStartBtnClick);
 
   function onStartBtnClick() {
+    refs.startBtn.setAttribute('disabled', '');
     showTime();
     const intervalId = setInterval(showTime, 1000);
     function showTime() {
